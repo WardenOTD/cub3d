@@ -1,9 +1,8 @@
 UNAME := $(shell uname -s)
+SRCS = test.c get_map.c\
 
 # MacOs
 ifeq ($(UNAME), Darwin)
-SRC			= \
-
 CC			= gcc
 RM			= rm -f
 CFLAGS		= -Wall -Wextra -Werror -I.
@@ -38,8 +37,6 @@ endif
 
 # Linux (Wsl)
 ifeq ($(UNAME), Linux)
-SRCS = test.c get_map.c\
-		
 SRCS_LIBFT = libft/*.c
 OBJ = $(SRCS:.c=.o)
 OBJ_LIBFT = $(SRCS_LIBFT:.c=.o)
