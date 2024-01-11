@@ -6,7 +6,7 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 10:57:42 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/11 12:41:58 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/11 13:23:45 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,25 @@
 #  include <mlx.h>
 # endif
 
+typedef struct s_mlx
+{
+	void	*mlx_ptr; //mlx pointer
+	void	*win_ptr; //window pointer
+	void	*wall_ptr[4]; //4 wall texture pointer
+	void	*spr_ptr; //sprite texture pointer
+}				t_mlx;
+
 typedef struct s_data
 {
-	//bunch of variables for mlx add more if needed
-	char	**map;
-	void	*mlx;
-	void	*win;
-	void	*wall[4];
-	void	*sprite;
-	char	ply_dir;
-	int		pcount;
+	//bunch of variables for mlx, add more if needed
+	t_mlx	mlx; //mlx variable struct
+	char	**map; //double array to store the map
+	char	*path_n; //texture path North wall
+	char	*path_e; //texture path East wall
+	char	*path_s; //texture path South wall
+	char	*path_w; //texture path West wall
+	char	ply_dir; //player spawning direction
+	int		pcount; //count of player symbols (N, E, S, W) for validation
 }				t_data;
 
 #endif

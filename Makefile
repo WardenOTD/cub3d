@@ -1,4 +1,4 @@
-SRC			= test.c \
+SRC			= \
 
 CC			= gcc
 RM			= rm -f
