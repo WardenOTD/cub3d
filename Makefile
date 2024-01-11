@@ -1,4 +1,8 @@
-SRC			= \
+SRC			= test.c\
+				get_map.c\
+
+GNL			= gnl/get_next_line.c\
+				gnl/get_next_line_utils.c\
 
 CC			= gcc
 RM			= rm -f
@@ -13,7 +17,7 @@ NAME		= cub3d
 all:	${NAME}
 
 ${NAME}: ${LIBFT} ${SRC}
-	${CC} ${CFLAGS} ${MLXFLAGS} ${FSANITIZE} ${SRC} ${LIBFT} -o ${NAME} ${DSYM}
+	${CC} ${CFLAGS} ${MLXFLAGS} ${FSANITIZE} ${SRC} ${GNL} ${LIBFT} -o ${NAME} ${DSYM}
 
 ${LIBFT}:
 	make -s all -C libft/
