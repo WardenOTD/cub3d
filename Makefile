@@ -1,3 +1,7 @@
+UNAME := $(shell uname -s)
+
+# MacOs
+ifeq ($(UNAME), Darwin)
 SRC			= \
 
 CC			= gcc
@@ -30,3 +34,41 @@ fclean: clean
 re:	fclean all
 
 .PHONY: all
+endif
+
+# Linux (Wsl)
+ifeq ($(UNAME), Linux)
+SRCS = test.c get_map.c\
+		
+SRCS_LIBFT = libft/*.c
+OBJ = $(SRCS:.c=.o)
+OBJ_LIBFT = $(SRCS_LIBFT:.c=.o)
+
+NAME 		= cub3d
+CC			= gcc
+RM			= rm -f
+FSANITIZE	= -fsanitize=address -g
+CFLAGS 		= -Wall -Wextra -Werror
+DSYM		= && rm -rf *.dSYM
+MLXFLAGS	= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+
+$(NAME): $(OBJ)
+		@$(CC) $(OBJ) $(OBJ_LIBFT) $(MLXFLAGS) $(FSANITIZE) -o $(NAME) $(DSYM)
+
+%.o: %.c
+		@gcc $(CFLAG) -c $< -o $(<:.c=.o)
+
+${LIBFT}:
+	make -s all -C libft/
+	mv libft/libft.a .
+
+clean :
+	@${RM} $(OBJ)
+
+fclean : clean
+		@rm -f $(NAME)
+
+re : fclean all
+
+.PHONY: all
+endif
