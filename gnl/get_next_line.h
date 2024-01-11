@@ -6,7 +6,7 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 09:46:40 by jteoh             #+#    #+#             */
-/*   Updated: 2022/08/23 16:24:10 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/11 17:58:10 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char		*readstring(char *string);
 
 char		*trim(char *string);
 
-int			ft_strlen(const char *s);
+int			ft_strlen2(const char *s);
 
 char		*ft_strjoin(char *s1, char *s2);
 

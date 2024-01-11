@@ -1,5 +1,10 @@
 UNAME := $(shell uname -s)
-SRCS = test.c get_map.c\
+
+SRC			= test.c\
+				get_map.c\
+
+GNL			= gnl/get_next_line.c\
+				gnl/get_next_line_utils.c\
 
 # MacOs
 ifeq ($(UNAME), Darwin)
@@ -16,7 +21,7 @@ NAME		= cub3d
 all:	${NAME}
 
 ${NAME}: ${LIBFT} ${SRC}
-	${CC} ${CFLAGS} ${MLXFLAGS} ${FSANITIZE} ${SRC} ${LIBFT} -o ${NAME} ${DSYM}
+	${CC} ${CFLAGS} ${MLXFLAGS} ${FSANITIZE} ${SRC} ${GNL} ${LIBFT} -o ${NAME} ${DSYM}
 
 ${LIBFT}:
 	make -s all -C libft/
@@ -37,9 +42,10 @@ endif
 
 # Linux (Wsl)
 ifeq ($(UNAME), Linux)
-SRCS_LIBFT = libft/*.c
-OBJ = $(SRCS:.c=.o)
-OBJ_LIBFT = $(SRCS_LIBFT:.c=.o)
+SRCS_LIBFT	= libft/*.c
+OBJ			= $(SRC:.c=.o)
+OBJ_GNL		= $(GNL:.c=.o)
+OBJ_LIBFT	= $(SRCS_LIBFT:.c=.o)
 
 NAME 		= cub3d
 CC			= gcc
@@ -50,7 +56,7 @@ DSYM		= && rm -rf *.dSYM
 MLXFLAGS	= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
 $(NAME): $(OBJ)
-		@$(CC) $(OBJ) $(OBJ_LIBFT) $(MLXFLAGS) $(FSANITIZE) -o $(NAME) $(DSYM)
+		@$(CC) $(OBJ) $(OBJ_GNL) $(OBJ_LIBFT) $(MLXFLAGS) $(FSANITIZE) -o $(NAME) $(DSYM)
 
 %.o: %.c
 		@gcc $(CFLAG) -c $< -o $(<:.c=.o)

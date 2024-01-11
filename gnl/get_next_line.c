@@ -6,7 +6,7 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 09:46:18 by jteoh             #+#    #+#             */
-/*   Updated: 2022/08/23 13:39:25 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/11 17:58:38 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ char	*trim(char *string)
 	int		i;
 	int		j;
 
-	j = ft_strlen(string);
+	j = ft_strlen2(string);
 	i = 0;
 	while (string[i] != '\n' && string[i] != '\0')
 		i++;

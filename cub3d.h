@@ -6,7 +6,7 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 10:57:42 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/11 13:23:45 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/11 18:02:37 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <math.h>
 # include <string.h>
 # include <fcntl.h>
+# include "libft/libft.h"
+# include "gnl/get_next_line.h"
 
 # if __linux__
 #  include <X11/X.h>
@@ -40,12 +42,25 @@ typedef struct s_data
 	//bunch of variables for mlx, add more if needed
 	t_mlx	mlx; //mlx variable struct
 	char	**map; //double array to store the map
-	char	*path_n; //texture path North wall
-	char	*path_e; //texture path East wall
-	char	*path_s; //texture path South wall
-	char	*path_w; //texture path West wall
+	char	*n_path; //texture path North wall
+	char	*e_path; //texture path East wall
+	char	*s_path; //texture path South wall
+	char	*w_path; //texture path West wall
+	char	*c_color; //ceiling color
+	char	*f_color; //floor color
 	char	ply_dir; //player spawning direction
 	int		pcount; //count of player symbols (N, E, S, W) for validation
 }				t_data;
+
+//---get_map.c---
+int		parse(t_data *data, char *argv);
+int		check_line_empty(char *line);
+char	**realloc2d(char **ori, int size);
+int		validity(t_data *data);
+int		get_f(t_data *data, int i, int j);
+int		get_f_malloc(t_data *data, int i, int j);
+void	get_f_copy(t_data *data, int i, int j, int index);
+void	get_f_malloc_init(int **nflag, int *cflag, int *index);
+int		validity_flag_set(int **nflag, int *cflag, char cur);
 
 #endif
