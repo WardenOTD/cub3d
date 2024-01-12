@@ -20,7 +20,7 @@ NAME		= cub3d
 
 all:	${NAME}
 
-${NAME}: ${LIBFT} ${SRC}
+${NAME}: ${LIBFT} ${SRC} ${GNL}
 	${CC} ${CFLAGS} ${MLXFLAGS} ${FSANITIZE} ${SRC} ${GNL} ${LIBFT} -o ${NAME} ${DSYM}
 
 ${LIBFT}:
@@ -55,21 +55,23 @@ CFLAGS 		= -Wall -Wextra -Werror
 DSYM		= && rm -rf *.dSYM
 MLXFLAGS	= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
-$(NAME): $(OBJ)
-		@$(CC) $(OBJ) $(OBJ_GNL) $(OBJ_LIBFT) $(MLXFLAGS) $(FSANITIZE) -o $(NAME) $(DSYM)
+$(NAME): $(OBJ) $(OBJ_GNL) ${LIBFT}
+	@$(CC) $(OBJ) $(OBJ_GNL) $(OBJ_LIBFT) $(MLXFLAGS) $(FSANITIZE) -o $(NAME) $(DSYM)
 
 %.o: %.c
-		@gcc $(CFLAG) -c $< -o $(<:.c=.o)
+	@gcc $(CFLAG) -c $< -o $(<:.c=.o)
 
 ${LIBFT}:
 	make -s all -C libft/
 	mv libft/libft.a .
 
 clean :
-	@${RM} $(OBJ)
+	@${RM} $(OBJ) $(OBJ_GNL)
+	make -s clean -C libft/
 
 fclean : clean
-		@rm -f $(NAME)
+	@${RM} $(NAME) ${LIBFT}
+	make -s fclean -C libft/
 
 re : fclean all
 

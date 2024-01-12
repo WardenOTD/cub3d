@@ -6,7 +6,7 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 10:57:42 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/12 12:13:35 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/12 13:46:14 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int		validity(t_data *data);
 int		get_f(t_data *data, int i, int j);
 int		get_f_malloc(t_data *data, int i, int j);
 void	get_f_copy(t_data *data, int i, int j, int index);
-void	get_f_malloc_init(int **nflag, int *cflag, int *index);
-int		validity_flag_set(int **nflag, int *cflag, char cur);
+void	get_f_malloc_init(int *nflag, int *cflag, int *index);
+int		validity_flag_set(int *nflag, int *cflag, char cur);
 
 #endif

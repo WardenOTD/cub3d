@@ -6,7 +6,7 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:17:17 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/12 12:13:42 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/12 13:52:38 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,15 @@ int	validity(t_data *data)
 		j = 0;
 		while (data->map[i][j])
 		{
-			if (ft_isdigit(data->map[i][j]))
+			if (ft_isdigit(data->map[i][j])){
+				break ;
 				return (0);
-			if (ft_strncmp(&(data->map[i][j]), "F", 1))
-				if (!get_f(data, i , j))
+			}
+			if (!ft_strncmp(&(data->map[i][j]), "F", 1))
+				if (!get_f(data, i , j)){
+					printf("here\n");
 					return (0);
+				}
 			// else if (ft_strncmp(&(data->map[i][j]), "C", 1))
 			// 	//
 			// else if (ft_strncmp(&(data->map[i][j]), "NO", 2))
@@ -131,16 +135,16 @@ int	get_f(t_data *data, int i, int j)
 
 int	get_f_malloc(t_data *data, int i, int j)
 {
-	int	*nflag;
+	int	nflag[2];
 	int	cflag;
 	int	index;
 	int	pos;
 
 	pos = 0;
-	get_f_malloc_init(&nflag, &cflag, &index);
+	get_f_malloc_init(nflag, &cflag, &index);
 	while (data->map[i][j])
 	{
-		if (!validity_flag_set(&nflag, &cflag, data->map[i][j]))
+		if (!validity_flag_set(nflag, &cflag, data->map[i][j]))
 			return (0);
 		if (ft_isdigit(data->map[i][j]) || data->map[i][j] == ',')
 		{
@@ -148,6 +152,7 @@ int	get_f_malloc(t_data *data, int i, int j)
 			if (pos == 0)
 				pos = j;
 		}
+		j++;
 	}
 	get_f_copy(data, i, pos, index);
 	return (1);
@@ -164,35 +169,35 @@ void	get_f_copy(t_data *data, int i, int j, int index)
 		data->f_color[k++] = data->map[i][j++];
 }
 
-void	get_f_malloc_init(int **nflag, int *cflag, int *index)
+void	get_f_malloc_init(int *nflag, int *cflag, int *index)
 {
-	*nflag[0] = 0;
-	*nflag[1] = 0;
+	nflag[0] = 0;
+	nflag[1] = 0;
 	*cflag = 0;
 	*index = 0;
 }
 
-int	validity_flag_set(int **nflag, int *cflag, char cur)
+int	validity_flag_set(int *nflag, int *cflag, char cur)
 {
 	if (ft_isdigit(cur))
 	{
-		*nflag[1] += 1;
-		if (*nflag[1] > 3)
+		nflag[1] += 1;
+		if (nflag[1] > 3)
 			return (0);
-		if (*nflag[0] == *cflag)
-			*nflag[0] += 1;
+		if (nflag[0] == *cflag)
+			nflag[0] += 1;
 	}
 	if (cur == ',')
 	{
-		*nflag[1] = 0;
-		if (*nflag[0] > *cflag)
+		nflag[1] = 0;
+		if (nflag[0] > *cflag)
 			*cflag += 1;
 		else
 			return (0);
 	}
 	if (cur == ' ')
 	{
-		if (*nflag[0] != 0)
+		if (nflag[0] != 0)
 			return (0);
 	}
 	return (1);

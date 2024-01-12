@@ -3,6 +3,7 @@
 int	main(int argc, char **argv)
 {
 	t_data	data;
+	data.map = NULL;
 	if (argc != 2)
 		return (2);
 	// data.mlx.mlx_ptr = mlx_init();
@@ -15,5 +16,6 @@ int	main(int argc, char **argv)
 		printf("%s", data.map[i]);
 	if (!validity(&data))
 		return (2);
+	printf("\n===============================\n");
 	printf("Floor color:: %s\n", data.f_color);
 }
