@@ -2,6 +2,7 @@ UNAME := $(shell uname -s)
 
 SRC			= test.c\
 				get_map.c\
+				get_f.c get_c.c get_nesw.c get_tex.c\
 
 GNL			= gnl/get_next_line.c\
 				gnl/get_next_line_utils.c\
