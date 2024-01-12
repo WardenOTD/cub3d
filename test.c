@@ -4,6 +4,7 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 	data.file = NULL;
+	data.parse_check = 0;
 	if (argc != 2)
 		return (2);
 	// data.mlx.mlx_ptr = mlx_init();
@@ -17,16 +18,16 @@ int	main(int argc, char **argv)
 	}
 	for (int i = 0; data.file[i]; i++)
 		printf("%s", data.file[i]);
-	if (!validity(&data))
+	if (!validity(&data, 0, 0))
 	{
 		printf("validity error\n");
 		return (2);
 	}
 	printf("\n===============================\n");
-	printf("Floor color:: %s\n", data.f_color);
-	printf("Ceiling color:: %s\n", data.c_color);
-	printf("NO tex: %s\n", data.n_path);
-	printf("EA tex: %s\n", data.e_path);
-	printf("SO tex: %s\n", data.s_path);
-	printf("WE tex: %s\n", data.w_path);
+	printf("NO tex: __%s__\n", data.n_path);
+	printf("EA tex: __%s__\n", data.e_path);
+	printf("SO tex: __%s__\n", data.s_path);
+	printf("WE tex: __%s__\n", data.w_path);
+	printf("Floor color:: __%s__\n", data.f_color);
+	printf("Ceiling color:: __%s__\n", data.c_color);
 }

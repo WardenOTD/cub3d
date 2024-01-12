@@ -6,7 +6,7 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 10:57:42 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/12 17:31:57 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/12 19:11:42 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,29 +54,34 @@ typedef struct s_data
 	int		pcount; //count of player symbols (N, E, S, W) for validation
 }				t_data;
 
-//---get_map.c---
+//---get_file.c---
 int		parse(t_data *data, char *argv);
 int		check_line_empty(char *line);
 void	realloc2d(t_data *data, int size);
-int		validity(t_data *data);
+
+//---file_valid.c---
+int		validity(t_data *data, int i, int j);
+int		validity2(t_data *data, int i, int j);
+int		validity3(t_data *data, int i, int j);
+int		validity4(t_data *data, int i, int j);
 
 //---get_f.c---
 int		get_f(t_data *data, int i, int j);
-int		get_f_malloc(t_data *data, int i, int j);
+int		get_f_malloc(t_data *data, int i, int j, int pos);
 void	get_f_copy(t_data *data, int i, int j, int index);
 void	get_malloc_init(int *nflag, int *cflag, int *index);
 int		validity_flag_set(int *nflag, int *cflag, char cur);
 
 //---get_c.c---
 int		get_c(t_data *data, int i, int j);
-int		get_c_malloc(t_data *data, int i, int j);
+int		get_c_malloc(t_data *data, int i, int j, int pos);
 void	get_c_copy(t_data *data, int i, int j, int index);
 
 //--get_nesw.c--
-int	get_no(t_data *data, int i, int j);
-int	get_ea(t_data *data, int i, int j);
-int	get_so(t_data *data, int i, int j);
-int	get_we(t_data *data, int i, int j);
+int		get_no(t_data *data, int i, int j);
+int		get_ea(t_data *data, int i, int j);
+int		get_so(t_data *data, int i, int j);
+int		get_we(t_data *data, int i, int j);
 
 //---get_tex.c---
 int		get_tex_malloc(t_data *data, int i, int j, char spc);

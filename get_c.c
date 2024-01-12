@@ -6,7 +6,7 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 14:07:09 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/12 17:31:21 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/12 18:57:02 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,26 +21,28 @@ int	get_c(t_data *data, int i, int j)
 		if (data->file[i][j] == ' ')
 			continue ;
 		if (ft_isdigit(data->file[i][j]))
-			return (get_c_malloc(data, i, j));
+			return (get_c_malloc(data, i, j, 0));
 		else
 			return (0);
 	}
 	return (0);
 }
 
-int	get_c_malloc(t_data *data, int i, int j)
+int	get_c_malloc(t_data *data, int i, int j, int pos)
 {
 	int	nflag[2];
 	int	cflag;
 	int	index;
-	int	pos;
+	int	valid;
 
-	pos = 0;
 	get_malloc_init(nflag, &cflag, &index);
 	while (data->file[i][j])
 	{
-		if (!validity_flag_set(nflag, &cflag, data->file[i][j]))
+		valid = validity_flag_set(nflag, &cflag, data->file[i][j]);
+		if (!valid)
 			return (0);
+		else if (valid == 2)
+			break ;
 		if (ft_isdigit(data->file[i][j]) || data->file[i][j] == ',')
 		{
 			index++;
@@ -49,6 +51,8 @@ int	get_c_malloc(t_data *data, int i, int j)
 		}
 		j++;
 	}
+	if (!check_invalid_after(data, i, j))
+		return (0);
 	get_c_copy(data, i, pos, index);
 	return (1);
 }
