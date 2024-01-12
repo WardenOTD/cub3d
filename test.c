@@ -9,9 +9,11 @@ int	main(int argc, char **argv)
 	// data.mlx.win_ptr = mlx_new_window(data.mlx.mlx_ptr, 500, 500, "cub3d");
 	// mlx_string_put(data.mlx.mlx_ptr, data.mlx.win_ptr, 250, 250, 10200200, "string_put");
 	// mlx_loop(data.mlx.mlx_ptr);
-	parse(&data, argv[1]);
+	if (!parse(&data, argv[1]))
+		return (2);
 	for (int i = 0; data.map[i]; i++)
 		printf("%s", data.map[i]);
-	validity(&data);
+	if (!validity(&data))
+		return (2);
 	printf("Floor color:: %s\n", data.f_color);
 }

@@ -6,7 +6,7 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:17:17 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/11 18:11:32 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/12 12:13:42 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	parse(t_data *data, char *argv)
 			break ;
 		else
 		{
-			data->map = realloc2d(data->map, i + 1);
+			realloc2d(data, i + 1);
 			data->map[i] = ft_strdup(tmp);
 			i++;
 		}
@@ -59,7 +59,7 @@ int	check_line_empty(char *line)
 	return (0);
 }
 
-char	**realloc2d(char **ori, int size)
+void	realloc2d(t_data *data, int size)
 {
 	char	**copy;
 	int		i;
@@ -67,17 +67,17 @@ char	**realloc2d(char **ori, int size)
 	i = 0;
 	copy = (char **)malloc(sizeof(char *) * (size + 1));
 	copy[size] = NULL;
-	if (ori)
+	if (data->map)
 	{
-		while (ori[i])
+		while (data->map[i])
 		{
-			copy[i] = ft_strdup(ori[i]);
-			free(ori[i]);
+			copy[i] = ft_strdup(data->map[i]);
+			free(data->map[i]);
 			i++;
 		}
-		free(ori);
+		free(data->map);
 	}
-	return (copy);
+	data->map = copy;
 }
 
 int	validity(t_data *data)

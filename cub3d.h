@@ -6,7 +6,7 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 10:57:42 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/11 18:02:37 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/12 12:13:35 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ typedef struct s_data
 //---get_map.c---
 int		parse(t_data *data, char *argv);
 int		check_line_empty(char *line);
-char	**realloc2d(char **ori, int size);
+void	realloc2d(t_data *data, int size);
 int		validity(t_data *data);
 int		get_f(t_data *data, int i, int j);
 int		get_f_malloc(t_data *data, int i, int j);
