@@ -6,7 +6,7 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 10:57:42 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/12 19:11:42 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/15 17:41:40 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,20 @@ typedef struct s_data
 {
 	//bunch of variables for mlx, add more if needed
 	t_mlx	mlx; //mlx variable struct
+	//---
 	char	**file; //double array to store the contents of the *.cub file
+	int		parse_check; //variable used to verify .cub file elements
+	//---
 	char	**map; //double array to store the map
+	//---
 	char	*n_path; //texture path North wall
 	char	*e_path; //texture path East wall
 	char	*s_path; //texture path South wall
 	char	*w_path; //texture path West wall
+	//---
 	char	*c_color; //ceiling color
 	char	*f_color; //floor color
-	int		parse_check;
+	//---
 	char	ply_dir; //player spawning direction
 	int		pcount; //count of player symbols (N, E, S, W) for validation
 }				t_data;
@@ -64,6 +69,7 @@ int		validity(t_data *data, int i, int j);
 int		validity2(t_data *data, int i, int j);
 int		validity3(t_data *data, int i, int j);
 int		validity4(t_data *data, int i, int j);
+int		validity5_check(t_data *data);
 
 //---get_f.c---
 int		get_f(t_data *data, int i, int j);
@@ -88,5 +94,12 @@ int		get_tex_malloc(t_data *data, int i, int j, char spc);
 char	*get_tex_copy(t_data *data, int i, int j, int index);
 void	get_tex_transfer(t_data *data, char *hold, char spc);
 int		check_invalid_after(t_data *data, int i, int j);
+
+//---get_map.c---
+int		get_map(t_data *data, int i);
+int		check_map_items(char c);
+int		map_2d_malloc(t_data *data, int pos, int index);
+int		map_1d_malloc(t_data *data, int pos, int j, int i);
+int		map_1d_copy(t_data *data, int pos, int i);
 
 #endif

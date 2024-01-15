@@ -3,7 +3,7 @@ UNAME := $(shell uname -s)
 SRC			= test.c\
 				get_file.c\
 				file_valid.c\
-				get_f.c get_c.c get_nesw.c get_tex.c\
+				get_f.c get_c.c get_nesw.c get_tex.c get_map.c\
 
 GNL			= gnl/get_next_line.c\
 				gnl/get_next_line_utils.c\

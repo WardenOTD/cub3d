@@ -6,7 +6,7 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:34:20 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/12 19:30:18 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/15 17:40:57 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,14 +109,20 @@ int	validity4(t_data *data, int i, int j)
 			{
 				if (data->parse_check != 6)
 					return (0);
-				break ; //call a function
+				if (!get_map(data, i))
+					return (0);
+				data->parse_check++;
+				return (validity5_check(data));
 			}
 			j++;
 		}
 		i++;
 	}
-	if (data->parse_check == 6)
-		data->parse_check++;
+	return (1);
+}
+
+int	validity5_check(t_data *data)
+{
 	if (data->parse_check != 7)
 		return (0);
 	return (1);

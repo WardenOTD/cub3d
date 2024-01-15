@@ -30,4 +30,7 @@ int	main(int argc, char **argv)
 	printf("WE tex: __%s__\n", data.w_path);
 	printf("Floor color:: __%s__\n", data.f_color);
 	printf("Ceiling color:: __%s__\n", data.c_color);
+	printf("map ::\n");
+	for (int i = 0; data.map[i]; i++)
+		printf("__%s__\n", data.map[i]);
 }
