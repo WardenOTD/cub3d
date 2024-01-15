@@ -6,7 +6,7 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 14:40:30 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/15 17:41:57 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/15 18:06:12 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int	map_2d_malloc(t_data *data, int pos, int index)
 		pos++;
 		index--;
 	}
+	map_clean(data);
 	return (1);
 }
 

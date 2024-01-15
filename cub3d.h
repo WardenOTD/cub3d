@@ -6,7 +6,7 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 10:57:42 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/15 17:41:40 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/15 18:05:47 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,9 @@ int		check_map_items(char c);
 int		map_2d_malloc(t_data *data, int pos, int index);
 int		map_1d_malloc(t_data *data, int pos, int j, int i);
 int		map_1d_copy(t_data *data, int pos, int i);
+
+//---get_map2.c---
+void	map_clean(t_data *data);
+void	map_recopy(t_data *data, int longest);
 
 #endif
