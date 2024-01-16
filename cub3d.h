@@ -6,7 +6,7 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 10:57:42 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/15 18:05:47 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/16 12:04:53 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,10 @@ typedef struct s_data
 	//---
 	char	*c_color; //ceiling color
 	char	*f_color; //floor color
+	int		int_c_color; //convert to integer
+	int		int_f_color; //convert to integer
 	//---
 	char	ply_dir; //player spawning direction
-	int		pcount; //count of player symbols (N, E, S, W) for validation
 }				t_data;
 
 //---get_file.c---
@@ -95,6 +96,17 @@ char	*get_tex_copy(t_data *data, int i, int j, int index);
 void	get_tex_transfer(t_data *data, char *hold, char spc);
 int		check_invalid_after(t_data *data, int i, int j);
 
+//---color_convert.c---
+int		color_check(t_data *data);
+int		color_check2(t_data *data);
+void	color_convert(t_data *data, int r, int g, int b);
+
+//---color_convert2.c---
+int		convert_r(t_data *data, int i, int mod);
+int		convert_g(t_data *data, int i, int mod);
+int		convert_b(t_data *data, int i, int mod);
+int		go_next_val(t_data *data, int mod);
+
 //---get_map.c---
 int		get_map(t_data *data, int i);
 int		check_map_items(char c);
@@ -105,5 +117,11 @@ int		map_1d_copy(t_data *data, int pos, int i);
 //---get_map2.c---
 void	map_clean(t_data *data);
 void	map_recopy(t_data *data, int longest);
+
+//---map_valid.c---
+int		map_valid(t_data *data, int i, int j);
+int		map_check_perimeter(t_data *data, int i, int j, int mod);
+int		map_check_perimeter2(t_data *data, int i, int j, int mod);
+int		map_check_void(t_data *data, int i, int j);
 
 #endif

@@ -23,6 +23,16 @@ int	main(int argc, char **argv)
 		printf("validity error\n");
 		return (2);
 	}
+	if (!color_check(&data))
+	{
+		printf("invalid color\n");
+		return (2);
+	}
+	if (!map_valid(&data, 0, 0))
+	{
+		printf("invalid map\n");
+		return (2);
+	}
 	printf("\n===============================\n");
 	printf("NO tex: __%s__\n", data.n_path);
 	printf("EA tex: __%s__\n", data.e_path);
@@ -30,7 +40,10 @@ int	main(int argc, char **argv)
 	printf("WE tex: __%s__\n", data.w_path);
 	printf("Floor color:: __%s__\n", data.f_color);
 	printf("Ceiling color:: __%s__\n", data.c_color);
+	printf("Floor color hex:: %X\n", data.int_f_color);
+	printf("Ceiling color hex:: %X\n", data.int_c_color);
 	printf("map ::\n");
 	for (int i = 0; data.map[i]; i++)
 		printf("__%s__\n", data.map[i]);
+	printf("Player facing: %c\n", data.ply_dir);
 }

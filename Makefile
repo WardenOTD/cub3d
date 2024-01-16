@@ -1,10 +1,11 @@
 UNAME := $(shell uname -s)
 
 SRC			= test.c\
-				get_file.c\
-				file_valid.c\
-				get_f.c get_c.c get_nesw.c get_tex.c\
-				get_map.c get_map2.c\
+				parsing/get_file.c\
+				parsing/file_valid.c\
+				parsing/get_f.c parsing/get_c.c parsing/get_nesw.c parsing/get_tex.c\
+				parsing/color_convert.c parsing/color_convert2.c\
+				parsing/get_map.c parsing/get_map2.c parsing/map_valid.c\
 
 GNL			= gnl/get_next_line.c\
 				gnl/get_next_line_utils.c\
