@@ -6,11 +6,11 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:51:42 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/15 18:05:42 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/16 13:35:05 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	map_clean(t_data *data)
 {

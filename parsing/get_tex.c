@@ -6,11 +6,11 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:17:40 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/12 17:31:21 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/16 13:35:11 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 int	get_tex_malloc(t_data *data, int i, int j, char spc)
 {

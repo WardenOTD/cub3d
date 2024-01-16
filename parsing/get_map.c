@@ -6,11 +6,11 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 14:40:30 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/15 18:06:12 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/16 13:34:55 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 int	get_map(t_data *data, int i)
 {

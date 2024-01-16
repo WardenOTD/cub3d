@@ -6,11 +6,11 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:34:20 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/15 17:40:57 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/16 13:34:46 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 int	validity(t_data *data, int i, int j)
 {

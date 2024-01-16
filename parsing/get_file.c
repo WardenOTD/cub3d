@@ -6,11 +6,11 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:17:17 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/16 09:51:55 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/16 13:34:53 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 int	parse(t_data *data, char *argv)
 {

@@ -6,11 +6,11 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:31:17 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/12 17:31:21 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/16 13:35:08 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 int	get_no(t_data *data, int i, int j)
 {

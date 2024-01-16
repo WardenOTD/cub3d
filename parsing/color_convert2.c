@@ -6,11 +6,11 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 11:51:44 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/16 12:09:38 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/16 13:35:23 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 int	convert_r(t_data *data, int i, int mod)
 {

@@ -6,7 +6,7 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 10:57:42 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/16 12:04:53 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/16 13:35:42 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ typedef struct s_data
 	char	ply_dir; //player spawning direction
 }				t_data;
 
+//--------parsing--------
 //---get_file.c---
 int		parse(t_data *data, char *argv);
 int		check_line_empty(char *line);

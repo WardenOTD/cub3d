@@ -6,11 +6,11 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 10:15:03 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/16 11:11:48 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/16 13:35:14 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 int	map_valid(t_data *data, int i, int j)
 {
