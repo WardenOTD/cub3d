@@ -46,4 +46,29 @@ int	main(int argc, char **argv)
 	for (int i = 0; data.map[i]; i++)
 		printf("__%s__\n", data.map[i]);
 	printf("Player facing: %c\n", data.ply_dir);
+
+
+
+	t_game game;
+
+	game.mlx = mlx_init();
+	game.win = mlx_new_window(game.mlx, H_RESOLUTION, V_RESOLUTION, "cub3d");
+	init_all(&game, &data);
+	mlx_loop_hook(game.mlx, render_next_frame, &game);
+	mlx_loop(game.mlx);
+}
+int		render_next_frame(t_game *my_struct)
+{
+	t_game	*game;
+
+	game = my_struct;
+	game->frame.img_ptr = mlx_new_image(game->mlx,
+			game->display.width, game->display.height);
+	game->frame.data = (int *)mlx_get_data_addr(game->frame.img_ptr,
+			&game->frame.bpp, &game->frame.size_l, &game->frame.endian);
+	update(game);
+	draw(game);
+	mlx_put_image_to_window(game->mlx, game->win, game->frame.img_ptr, 0, 0);
+	mlx_destroy_image(game->mlx, game->frame.img_ptr);
+	return (1);
 }

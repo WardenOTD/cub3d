@@ -1,11 +1,14 @@
 UNAME := $(shell uname -s)
 
-SRC			= test.c\
+SRC			= main.c\
 				parsing/get_file.c\
 				parsing/file_valid.c\
 				parsing/get_f.c parsing/get_c.c parsing/get_nesw.c parsing/get_tex.c\
 				parsing/color_convert.c parsing/color_convert2.c\
 				parsing/get_map.c parsing/get_map2.c parsing/map_valid.c\
+				raycasting/castray.c raycasting/update.c\
+				draw/draw.c\
+				init.c keys.c utils.c\
 
 GNL			= gnl/get_next_line.c\
 				gnl/get_next_line_utils.c\

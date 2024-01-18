@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*   By: jutong <jutong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 10:57:42 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/16 13:35:42 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/18 11:42:20 by jutong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,11 @@
 # include <math.h>
 # include <string.h>
 # include <fcntl.h>
+# include <limits.h>
 # include "libft/libft.h"
 # include "gnl/get_next_line.h"
+# include "structs.h"
+# include "constants.h"
 
 # if __linux__
 #  include <X11/X.h>
@@ -28,37 +31,6 @@
 # else
 #  include <mlx.h>
 # endif
-
-typedef struct s_mlx
-{
-	void	*mlx_ptr; //mlx pointer
-	void	*win_ptr; //window pointer
-	void	*wall_ptr[4]; //4 wall texture pointer
-	void	*spr_ptr; //sprite texture pointer
-}				t_mlx;
-
-typedef struct s_data
-{
-	//bunch of variables for mlx, add more if needed
-	t_mlx	mlx; //mlx variable struct
-	//---
-	char	**file; //double array to store the contents of the *.cub file
-	int		parse_check; //variable used to verify .cub file elements
-	//---
-	char	**map; //double array to store the map
-	//---
-	char	*n_path; //texture path North wall
-	char	*e_path; //texture path East wall
-	char	*s_path; //texture path South wall
-	char	*w_path; //texture path West wall
-	//---
-	char	*c_color; //ceiling color
-	char	*f_color; //floor color
-	int		int_c_color; //convert to integer
-	int		int_f_color; //convert to integer
-	//---
-	char	ply_dir; //player spawning direction
-}				t_data;
 
 //--------parsing--------
 //---get_file.c---
@@ -124,5 +96,54 @@ int		map_valid(t_data *data, int i, int j);
 int		map_check_perimeter(t_data *data, int i, int j, int mod);
 int		map_check_perimeter2(t_data *data, int i, int j, int mod);
 int		map_check_void(t_data *data, int i, int j);
+
+//--castray.c---
+char	get_wall_orientation(t_map *map, int x, int y, t_ray *ray);
+int		is_wall(t_map *map, double x, double y, t_ray *ray);
+void	find_h_intersection_n(t_ray *ray, t_map *map, t_player *player);
+void	find_h_intersection_s(t_ray *ray, t_map *map, t_player *player);
+void	find_v_intersection_w(t_ray *ray, t_map *map, t_player *player);
+void	find_v_intersection_e(t_ray *ray, t_map *map, t_player *player);
+void	find_h_intersection(t_ray *ray, t_map *map, t_player *player);
+void	find_v_intersection(t_ray *ray, t_map *map, t_player *player);
+void	cast_single_ray(t_ray *ray, t_map *map, t_player *player);
+
+//---draw.c---
+void		draw_rect(t_rect *rect, int *img, int res_width);
+void		draw_ceilling(t_game *game);
+void		draw_floor(t_game *game);
+t_texture	get_wall_texture(t_display *display, char orientation);
+double		get_wall_height(t_game *game, t_ray *ray);
+int			get_y_wall_position(t_game *game, double wall_height);
+int			get_bitmap_offset(t_ray *ray, int bitmap_width);
+void		draw_wall_strip(t_rect *rect, int *img, t_display *display, t_ray *ray);
+void		draw_walls(t_game *game);
+void		draw(t_game *game);
+
+//---update.c---
+void	update_player_position(t_player *player, char **grid);
+void	update_player_orientation(t_player *player);
+void	raycasting(t_game *game);
+void	update(t_game *game);
+int		render_next_frame(t_game *my_struct);
+
+//---init.c---
+void	init_display_params(t_game *game, t_data *data);
+void	init_player_params(t_game *game, t_data *data);
+void	init_ray_params(t_game *game);
+void	init_textures(void *mlx, t_display *display);
+void	init_all(t_game *game, t_data *data);
+
+//---keys.c---
+int		key_pressed(int keycode, t_game *game);
+int		key_released(int keycode, t_game *game);
+
+//---utils.c---
+double	deg_to_rad(double deg);
+double	normalize_radian(double radian);
+int		get_map_height(char **map);
+int 	get_map_width(char **map);
+void	get_player_pos(char **map, double *px, double *py);
+double	get_player_dir(char c);
 
 #endif

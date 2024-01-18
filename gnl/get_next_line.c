@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*   By: jutong <jutong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 09:46:18 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/11 17:58:38 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/18 11:47:38 by jutong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*readfd(int fd, char *string)
 			return (NULL);
 		}
 		buff = reallocbuff(buff, rv);
-		string = ft_strjoin(string, buff);
+		string = ft_strjoin2(string, buff);
 		if (check(buff, '\n'))
 			rv = 0;
 		free(buff);

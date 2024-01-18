@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*   By: jutong <jutong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 09:46:40 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/11 17:58:10 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/18 11:47:51 by jutong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ char		*trim(char *string);
 
 int			ft_strlen2(const char *s);
 
-char		*ft_strjoin(char *s1, char *s2);
+char		*ft_strjoin2(char *s1, char *s2);
 
 int			check(char *string, int c);
 
-char		*ft_strdup(const char *s1);
+char		*ft_strdup2(const char *s1);
 
 #endif
