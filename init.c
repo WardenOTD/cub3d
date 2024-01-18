@@ -60,7 +60,7 @@ void init_all(t_game *game, t_data *data)
 {
 	init_display_params(game, data);
 	init_player_params(game, data);
-	mlx_hook(game->win, KEY_PRESS, M_KEY_PRESS, key_pressed, game);
+	mlx_hook(game->win, KEY_PRESS, M_KEY_PRESS, key_pressed, data);
 	mlx_hook(game->win, KEY_RELEASE, M_KEY_RELEASE, key_released, game);
 	init_ray_params(game);
 	init_textures(game->mlx, &game->display, data);

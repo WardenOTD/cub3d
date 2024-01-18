@@ -1,28 +1,6 @@
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-typedef struct s_data
-{
-	//bunch of variables for mlx, add more if needed
-	//---
-	char	**file; //double array to store the contents of the *.cub file
-	int		parse_check; //variable used to verify .cub file elements
-	//---
-	char	**map; //double array to store the map
-	//---
-	char	*n_path; //texture path North wall
-	char	*e_path; //texture path East wall
-	char	*s_path; //texture path South wall
-	char	*w_path; //texture path West wall
-	//---
-	char	*c_color; //ceiling color
-	char	*f_color; //floor color
-	int		int_c_color; //convert to integer
-	int		int_f_color; //convert to integer
-	//---
-	char	ply_dir; //player spawning direction
-}				t_data;
-
 typedef struct	s_ray
 {
 	double		x;
@@ -105,6 +83,30 @@ typedef struct s_game
 	t_display	display; //data structure for items involved in the ui
 	t_img		frame; //data structure for the frame printed on screen
 }	t_game;
+
+typedef struct s_data
+{
+	//bunch of variables for mlx, add more if needed
+	//---
+	char	**file; //double array to store the contents of the *.cub file
+	int		parse_check; //variable used to verify .cub file elements
+	//---
+	char	**map; //double array to store the map
+	//---
+	char	*n_path; //texture path North wall
+	char	*e_path; //texture path East wall
+	char	*s_path; //texture path South wall
+	char	*w_path; //texture path West wall
+	//---
+	char	*c_color; //ceiling color
+	char	*f_color; //floor color
+	int		int_c_color; //convert to integer
+	int		int_f_color; //convert to integer
+	//---
+	char	ply_dir; //player spawning direction
+	//---
+	t_game	game; //game data
+}				t_data;
 
 typedef struct	s_rect
 {

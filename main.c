@@ -33,6 +33,8 @@ int	main(int argc, char **argv)
 		printf("invalid map\n");
 		return (2);
 	}
+	if (!check_valid_path(&data))
+		free_exit_msg(&data, 0, "Invalid texture path\n");
 	printf("\n===============================\n");
 	printf("NO tex: __%s__\n", data.n_path);
 	printf("EA tex: __%s__\n", data.e_path);
@@ -47,15 +49,12 @@ int	main(int argc, char **argv)
 		printf("__%s__\n", data.map[i]);
 	printf("Player facing: %c\n", data.ply_dir);
 
-
-
-	t_game game;
-
-	game.mlx = mlx_init();
-	game.win = mlx_new_window(game.mlx, H_RESOLUTION, V_RESOLUTION, "cub3d");
-	init_all(&game, &data);
-	mlx_loop_hook(game.mlx, render_next_frame, &game);
-	mlx_loop(game.mlx);
+	//---ui stuff---
+	data.game.mlx = mlx_init();
+	data.game.win = mlx_new_window(data.game.mlx, H_RESOLUTION, V_RESOLUTION, "cub3d");
+	init_all(&data.game, &data);
+	mlx_loop_hook(data.game.mlx, render_next_frame, &data.game);
+	mlx_loop(data.game.mlx);
 }
 int		render_next_frame(t_game *my_struct)
 {

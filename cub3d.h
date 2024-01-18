@@ -6,7 +6,7 @@
 /*   By: jutong <jutong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 10:57:42 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/18 12:10:59 by jutong           ###   ########.fr       */
+/*   Updated: 2024/01/18 16:57:06 by jutong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@
 int		parse(t_data *data, char *argv);
 int		check_line_empty(char *line);
 void	realloc2d(t_data *data, int size);
+
+//---check_valid_path.c---
+int		check_valid_path(t_data *data);
 
 //---file_valid.c---
 int		validity(t_data *data, int i, int j);
@@ -135,7 +138,7 @@ void	init_textures(void *mlx, t_display *display, t_data *data);
 void	init_all(t_game *game, t_data *data);
 
 //---keys.c---
-int		key_pressed(int keycode, t_game *game);
+int		key_pressed(int keycode, t_data *data);
 int		key_released(int keycode, t_game *game);
 
 //---utils.c---
@@ -145,5 +148,10 @@ int		get_map_height(char **map);
 int 	get_map_width(char **map);
 void	get_player_pos(char **map, double *px, double *py);
 double	get_player_dir(char c);
+
+//---free_exit.c---
+void	free_exit(t_data *data, int code);
+void	free2d(char **arr);
+void	free_exit_msg(t_data *data, int code, char *msg);
 
 #endif

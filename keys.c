@@ -1,22 +1,22 @@
 #include "cub3d.h"
 
-int		key_pressed(int keycode, t_game *game)
+int		key_pressed(int keycode, t_data *data)
 {
 	// printf("%d\n", keycode);
 	if (keycode == KEY_W)
-		game->player.walk_direction = 'w';
+		data->game.player.walk_direction = 'w';
 	else if (keycode == KEY_A)
-		game->player.walk_direction = 'a';
+		data->game.player.walk_direction = 'a';
 	else if (keycode == KEY_S)
-		game->player.walk_direction = 's';
+		data->game.player.walk_direction = 's';
 	else if (keycode == KEY_D)
-		game->player.walk_direction = 'd';
+		data->game.player.walk_direction = 'd';
 	else if (keycode == KEY_L_ARROW)
-		game->player.turn_direction = -1;
+		data->game.player.turn_direction = -1;
 	else if (keycode == KEY_R_ARROW)
-		game->player.turn_direction = 1;
+		data->game.player.turn_direction = 1;
 	else if (keycode == KEY_ESC)
-		exit(EXIT_SUCCESS); //free n exit
+		free_exit(data, 1);
 	return (1);
 }
 
