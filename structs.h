@@ -1,18 +1,9 @@
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-// typedef struct s_mlx
-// {
-// 	void	*mlx_ptr; //mlx pointer
-// 	void	*win_ptr; //window pointer
-// 	void	*wall_ptr[4]; //4 wall texture pointer
-// 	void	*spr_ptr; //sprite texture pointer
-// }				t_mlx;
-
 typedef struct s_data
 {
 	//bunch of variables for mlx, add more if needed
-	// t_mlx	mlx; //mlx variable struct
 	//---
 	char	**file; //double array to store the contents of the *.cub file
 	int		parse_check; //variable used to verify .cub file elements
@@ -47,18 +38,18 @@ typedef struct	s_ray
 
 typedef struct	s_rays
 {
-	t_ray		*arr;
-	double		view_angle;
+	t_ray		*arr; //array of single rays
+	double		view_angle; //angle of player's field of vision
 	double		dist_proj_plane;
 }				t_rays;
 
 typedef struct	s_img
 {
-	void		*img_ptr;
-	int			*data;
-	int			bpp;
-	int			size_l;
-	int			endian;
+	void		*img_ptr; //pointer for image
+	int			*data; //address for image given by mlx_get_data_addr
+	int			bpp; //given by mlx_get_data_addr
+	int			size_l; //given by mlx_get_data_addr
+	int			endian; //given by mlx_get_data_addr
 }	t_img;
 
 typedef struct	s_player
@@ -74,19 +65,19 @@ typedef struct	s_player
 
 typedef struct	s_map
 {
-	char		**map;
-	int			width;
-	int			height;
+	char		**map; //square map represented by a char *
+	int			width; //x magnitude of map
+	int			height; // y magnitude of map
 }				t_map;
 
 typedef struct	s_texture
 {
 	char		*path; //path to image
 	void		*img_ptr; //void * for mlx
-	int			*data;
-	int			bpp;
-	int			size_l;
-	int			endian;
+	int			*data; //address for image given by mlx_get_data_addr
+	int			bpp; //given by mlx_get_data_addr
+	int			size_l; //given by mlx_get_data_addr
+	int			endian; //given by mlx_get_data_addr
 	int			width; //image width
 	int			height; //image height
 }				t_texture;
@@ -95,24 +86,24 @@ typedef struct	s_display
 {
 	long long	width; //screen width
 	long long	height; //screen height
-	t_texture	no_tex;
-	t_texture	so_tex;
-	t_texture	we_tex;
-	t_texture	ea_tex;
+	t_texture	no_tex; //data structure for north wall texture
+	t_texture	so_tex; //data structure for south wall texture
+	t_texture	we_tex; //data structure for west wall texture
+	t_texture	ea_tex; //data structure for east wall texture
 	int			floor; //floor colour
 	int			ceilling; //ceiling colour
-	t_map		map;
+	t_map		map; //data structure for map
 }				t_display;
 
 typedef struct s_game
 {
-	void *mlx;
-	void *win;
+	void *mlx; //pointer for mlx
+	void *win; //pointer for win
 
-	t_player	player;
-	t_rays		rays;
-	t_display	display;
-	t_img		frame;
+	t_player	player; //data structure for player info
+	t_rays		rays; //data structure for rays used for raycasting
+	t_display	display; //data structure for items involved in the ui
+	t_img		frame; //data structure for the frame printed on screen
 }	t_game;
 
 typedef struct	s_rect

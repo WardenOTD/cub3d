@@ -38,5 +38,7 @@
 # define H_RESOLUTION 1664
 # define SCALE 64
 # define FOV_ANGLE 60
+# define MOVE_SPEED 0.05
+# define ROT_SPEED 3
 
 #endif

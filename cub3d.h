@@ -6,7 +6,7 @@
 /*   By: jutong <jutong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 10:57:42 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/18 11:42:20 by jutong           ###   ########.fr       */
+/*   Updated: 2024/01/18 12:10:59 by jutong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ int		render_next_frame(t_game *my_struct);
 void	init_display_params(t_game *game, t_data *data);
 void	init_player_params(t_game *game, t_data *data);
 void	init_ray_params(t_game *game);
-void	init_textures(void *mlx, t_display *display);
+void	init_textures(void *mlx, t_display *display, t_data *data);
 void	init_all(t_game *game, t_data *data);
 
 //---keys.c---
