@@ -10,6 +10,7 @@ void	init_display_params(t_game *game, t_data *data)
 	game->display.map.width = get_map_width(data->map);
 	game->display.ceilling = data->int_c_color;
 	game->display.floor = data->int_f_color;
+	game->activate_mouse = 1;
 }
 
 void	init_player_params(t_game *game, t_data *data)
@@ -62,6 +63,7 @@ void init_all(t_game *game, t_data *data)
 	init_player_params(game, data);
 	mlx_hook(game->win, KEY_PRESS, M_KEY_PRESS, key_pressed, data);
 	mlx_hook(game->win, KEY_RELEASE, M_KEY_RELEASE, key_released, game);
+	mlx_hook(game->win, 6, (1L<<6), mouse_move, game);
 	mlx_hook(game->win, X_WINDOW, 0, close_window, data);
 	init_ray_params(game);
 	init_textures(game->mlx, &game->display, data);

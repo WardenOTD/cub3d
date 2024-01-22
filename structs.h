@@ -78,6 +78,7 @@ typedef struct s_game
 	void *mlx; //pointer for mlx
 	void *win; //pointer for win
 
+	int			activate_mouse;
 	t_player	player; //data structure for player info
 	t_rays		rays; //data structure for rays used for raycasting
 	t_display	display; //data structure for items involved in the ui

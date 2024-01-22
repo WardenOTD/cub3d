@@ -17,6 +17,8 @@ int		key_pressed(int keycode, t_data *data)
 		data->game.player.turn_direction = 1;
 	else if (keycode == KEY_ESC)
 		free_exit(data, 1);
+	else if (keycode == KEY_F)
+		data->game.activate_mouse *= -1;
 	return (1);
 }
 
@@ -35,4 +37,21 @@ int	close_window(int keycode, t_data *data)
 	(void)keycode;
 	(void)data;
 	exit(0);
+}
+
+int mouse_move(int x, int y, t_game *game)
+{
+	static int	screen_centre = H_RESOLUTION / 2;
+
+	if (game->activate_mouse > 0)
+		return (0);
+	if (x == screen_centre)
+		game->player.turn_direction = 0;
+	else if (x < screen_centre)
+		game->player.turn_direction = -1;
+	else if (x > screen_centre)
+		game->player.turn_direction = 1;
+	screen_centre = x;
+	mlx_mouse_move(game->mlx, game->win, H_RESOLUTION / 2, V_RESOLUTION / 2); //doesnt work completely?
+	return (0);
 }
