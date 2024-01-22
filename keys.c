@@ -29,3 +29,10 @@ int		key_released(int keycode, t_game *game)
 		game->player.turn_direction = 0;
 	return (1);
 }
+
+int	close_window(int keycode, t_data *data)
+{
+	(void)keycode;
+	(void)data;
+	exit(0);
+}

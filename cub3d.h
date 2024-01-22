@@ -6,7 +6,7 @@
 /*   By: jutong <jutong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 10:57:42 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/18 16:57:06 by jutong           ###   ########.fr       */
+/*   Updated: 2024/01/22 14:06:09 by jutong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,7 @@ void	init_all(t_game *game, t_data *data);
 //---keys.c---
 int		key_pressed(int keycode, t_data *data);
 int		key_released(int keycode, t_game *game);
+int		close_window(int keycode, t_data *data);
 
 //---utils.c---
 double	deg_to_rad(double deg);
