@@ -43,6 +43,7 @@ int mouse_move(int x, int y, t_game *game)
 {
 	static int	screen_centre = H_RESOLUTION / 2;
 
+	(void)y;
 	if (game->activate_mouse > 0)
 		return (0);
 	if (x == screen_centre)
@@ -52,6 +53,7 @@ int mouse_move(int x, int y, t_game *game)
 	else if (x > screen_centre)
 		game->player.turn_direction = 1;
 	screen_centre = x;
-	mlx_mouse_move(game->mlx, game->win, H_RESOLUTION / 2, V_RESOLUTION / 2); //doesnt work completely?
+	// mlx_mouse_move(game->mlx, game->win, H_RESOLUTION / 2, V_RESOLUTION / 2); //doesnt work completely?
+	mlx_mouse_move(game->win, H_RESOLUTION / 2, V_RESOLUTION / 2);
 	return (0);
 }
