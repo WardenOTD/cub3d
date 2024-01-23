@@ -23,24 +23,30 @@ MLXFLAGS	= -lmlx -framework OpenGL -framework AppKit
 FSANITIZE	= -fsanitize=address -g
 DSYM		= && rm -rf *.dSYM
 
+MLX			= libmlx.a
 LIBFT		= libft.a
 NAME		= cub3d
 
 all:	${NAME}
 
-${NAME}: ${LIBFT} ${SRC} ${GNL}
-	${CC} ${CFLAGS} ${MLXFLAGS} ${FSANITIZE} ${SRC} ${GNL} ${LIBFT} -o ${NAME} ${DSYM}
+${NAME}: ${MLX} ${LIBFT} ${SRC} ${GNL}
+	${CC} ${CFLAGS} ${MLXFLAGS} ${FSANITIZE} ${SRC} ${GNL} ${LIBFT} ${MLX} -o ${NAME} ${DSYM}
 
 ${LIBFT}:
 	make -s all -C libft/
 	mv libft/libft.a .
 
+${MLX}:
+	make -s all -C mlx_mac/
+	mv mlx_mac/libmlx.a .
+
 clean:
 	@${RM} *.o
 	make -s clean -C libft/
+	make -s clean -C mlx_mac/
 
 fclean: clean
-	${RM} $(NAME) ${LIBFT}
+	${RM} $(NAME) ${LIBFT} ${MLX}
 	make -s fclean -C libft/
 
 re:	fclean all

@@ -6,7 +6,7 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 10:57:42 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/22 17:08:12 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/23 11:18:19 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 #  include <X11/X.h>
 #  include "mlx_linux/mlx.h"
 # else
-#  include <mlx_mac/mlx.h>
+#  include "mlx_mac/mlx.h"
 # endif
 
 //--------parsing--------
