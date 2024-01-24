@@ -14,7 +14,7 @@ char	get_wall_orientation(t_map *map, int x, int y, t_ray *ray)
 	{
 		if (map->map[y - 1][x] != '1' && 0 <= ray->angle && ray->angle < PI)
 			return ('N');
-		else if (map->map[y + 1][x] != '1' && 0 > ray->angle && ray->angle >= PI)
+		else //if (map->map[y + 1][x] != '1' && 0 > ray->angle && ray->angle >= PI)
 			return ('S');
 	}
 	else
