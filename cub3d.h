@@ -6,7 +6,7 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 10:57:42 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/26 11:51:14 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/26 17:15:17 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,22 @@
 # else
 #  include "mlx_mac/mlx.h"
 # endif
+//--------minimap--------
+//---minimap.c---
+int			map_ratio(t_data *data);
+void		render_minimap(t_data *data);
+void		detect_block(t_data *data, int i, int j);
+void		place_block(t_data *data, int i, int j, int color);
 
 //---main.c---
 void		init_data(t_data *data);
 void		err(t_data *data, char *file);
 void		debug_print(t_data *data);
 int			main(int argc, char **argv);
-int			render_next_frame(t_game *my_struct);
+int			render_next_frame(t_data *data);
+
+//---main2.c---
+void		put_sprite(t_game *game);
 
 //--------parsing--------
 //---file_extension.c---

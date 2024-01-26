@@ -1,6 +1,8 @@
 UNAME := $(shell uname -s)
 
-SRC			= main.c\
+# norminette draw/ gnl/ libft/ minimap/ parsing/ raycasting/ utils/ constants.h cub3d.h free_exit.c init.c keys.c main.c main2.c structs.h
+
+SRC			= main.c main2.c\
 				parsing/file_extension.c\
 				parsing/check_valid_path.c\
 				parsing/get_file.c\
@@ -11,6 +13,7 @@ SRC			= main.c\
 				raycasting/castray.c raycasting/castray2.c raycasting/update.c\
 				draw/draw.c draw/draw2.c\
 				utils/utils.c utils/utils2.c\
+				minimap/minimap.c\
 				init.c keys.c free_exit.c\
 
 GNL			= gnl/get_next_line.c\

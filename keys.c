@@ -6,7 +6,7 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:41:20 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/26 10:45:18 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/26 17:16:04 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	key_pressed(int keycode, t_data *data)
 		free_exit(data, 1);
 	else if (keycode == KEY_F)
 		data->game.activate_mouse *= -1;
+	else if (keycode == KEY_SPACE)
+		data->game.change_sprite *= -1;
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:41:24 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/26 11:51:37 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/26 17:04:02 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,16 +76,16 @@ int	main(int argc, char **argv)
 	data.game.win = mlx_new_window(data.game.mlx,
 			H_RESOLUTION, V_RESOLUTION, "cub3d");
 	init_all(&data.game, &data);
-	mlx_loop_hook(data.game.mlx, render_next_frame, &data.game);
+	mlx_loop_hook(data.game.mlx, render_next_frame, &data);
 	mlx_loop(data.game.mlx);
 	return (0);
 }
 
-int	render_next_frame(t_game *my_struct)
+int	render_next_frame(t_data *data)
 {
 	t_game	*game;
 
-	game = my_struct;
+	game = &data->game;
 	game->frame.img_ptr = mlx_new_image(game->mlx,
 			game->display.width, game->display.height);
 	game->frame.data = (int *)mlx_get_data_addr(game->frame.img_ptr,
@@ -93,6 +93,8 @@ int	render_next_frame(t_game *my_struct)
 	update(game);
 	draw(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->frame.img_ptr, 0, 0);
+	put_sprite(game);
+	render_minimap(data);
 	mlx_destroy_image(game->mlx, game->frame.img_ptr);
 	return (1);
 }

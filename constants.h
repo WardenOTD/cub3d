@@ -6,7 +6,7 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:22:55 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/26 10:22:56 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/26 17:05:40 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 #  define KEY_F 102
 #  define KEY_L_ARROW 65361
 #  define KEY_R_ARROW 65363
+#  define KEY_SPACE 49
 #  define X_WINDOW 17
 # else
 #  define KEY_ESC 53
@@ -32,6 +33,7 @@
 #  define KEY_F 3
 #  define KEY_L_ARROW 123
 #  define KEY_R_ARROW 124
+#  define KEY_SPACE 49
 #  define X_WINDOW 17
 # endif
 

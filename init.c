@@ -6,7 +6,7 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:41:18 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/26 10:43:24 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/26 16:53:44 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	init_display_params(t_game *game, t_data *data)
 	game->display.ceilling = data->int_c_color;
 	game->display.floor = data->int_f_color;
 	game->activate_mouse = 1;
+	game->change_sprite = 1;
 }
 
 void	init_player_params(t_game *game, t_data *data)

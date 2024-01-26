@@ -6,7 +6,7 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:27:45 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/26 10:29:05 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/26 17:08:37 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ typedef struct s_display
 	t_texture	so_tex; //data structure for south wall texture
 	t_texture	we_tex; //data structure for west wall texture
 	t_texture	ea_tex; //data structure for east wall texture
+	t_texture	pov;
 	int			floor; //floor colour
 	int			ceilling; //ceiling colour
 	t_map		map; //data structure for map
@@ -91,6 +92,7 @@ typedef struct s_game
 	void		*win; //pointer for win
 	//---
 	int			activate_mouse;
+	int			change_sprite;
 	t_player	player; //data structure for player info
 	t_rays		rays; //data structure for rays used for raycasting
 	t_display	display; //data structure for items involved in the ui
@@ -117,6 +119,8 @@ typedef struct s_data
 	int		int_f_color; //convert to integer
 	//---
 	char	ply_dir; //player spawning direction
+	//---
+	int		size; //size per block of minimap
 	//---
 	t_game	game; //game data
 }				t_data;

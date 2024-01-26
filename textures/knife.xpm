@@ -2,14 +2,14 @@
 static char *result[] = {
 /* columns rows colors chars-per-pixel */
 "900 464 20 1 ",
-"  c #E6E6E6",
+"  c none",
 ". c #E37425",
 "X c #D06B27",
 "o c #EF7C33",
 "O c #2D1F0D",
 "+ c #3B2B15",
 "@ c #4E3A20",
-"# c white",
+"# c none",
 "$ c #201206",
 "% c #0F0802",
 "& c #BB6024",
