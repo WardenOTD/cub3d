@@ -35,7 +35,7 @@
 #  define M_KEY_RELEASE 2
 # endif
 
-# define PI 3.141592
+# define PI 3.14159265358979323846
 # define DR 0.0174533
 
 # define V_RESOLUTION 896
