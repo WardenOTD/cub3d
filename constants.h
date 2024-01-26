@@ -6,7 +6,7 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:22:55 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/26 17:05:40 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/26 18:42:29 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@
 # define H_RESOLUTION 1664
 # define SCALE 64
 # define FOV_ANGLE 60
-# define MOVE_SPEED 0.05
-# define ROT_SPEED 3
+# define MOVE_SPEED 0.1
+# define ROT_SPEED 4
 
 #endif
