@@ -6,7 +6,7 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 11:51:44 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/16 13:35:23 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/26 09:54:26 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,4 +124,9 @@ int	go_next_val(t_data *data, int mod)
 		while (data->f_color[i] != ',')
 			i++;
 	return (i + 1);
+}
+
+int	rgb(int r, int g, int b)
+{
+	return ((r << 16) | (g << 8) | b);
 }

@@ -6,7 +6,7 @@
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 10:57:42 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/23 11:18:19 by jteoh            ###   ########.fr       */
+/*   Updated: 2024/01/26 09:55:42 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ int		convert_r(t_data *data, int i, int mod);
 int		convert_g(t_data *data, int i, int mod);
 int		convert_b(t_data *data, int i, int mod);
 int		go_next_val(t_data *data, int mod);
+int		rgb(int r, int g, int b);
 
 //---get_map.c---
 int		get_map(t_data *data, int i);
