@@ -1,47 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_valid_path.c                                 :+:      :+:    :+:   */
+/*   file_extension.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/26 10:33:32 by jteoh             #+#    #+#             */
-/*   Updated: 2024/01/26 11:27:46 by jteoh            ###   ########.fr       */
+/*   Created: 2024/01/26 11:05:09 by jteoh             #+#    #+#             */
+/*   Updated: 2024/01/26 11:14:47 by jteoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-int	check_valid_path(t_data *data)
+int	file_extension(char	*file)
 {
-	int	fd;
-
-	fd = open(data->n_path, O_RDONLY);
-	if (fd == -1)
+	if (back_strncmp(file, ".cub"))
 		return (0);
-	close(fd);
-	fd = open(data->e_path, O_RDONLY);
-	if (fd == -1)
-		return (0);
-	close(fd);
-	fd = open(data->s_path, O_RDONLY);
-	if (fd == -1)
-		return (0);
-	close(fd);
-	fd = open(data->w_path, O_RDONLY);
-	if (fd == -1)
-		return (0);
-	close(fd);
 	return (1);
 }
 
-int	check_file_exist(char *file)
+int	back_strncmp(char *haystack, char *needle)
 {
-	int	fd;
+	int	i;
+	int	j;
 
-	fd = open(file, O_RDONLY);
-	if (fd == -1)
-		return (0);
-	close(fd);
+	i = ft_strlen(haystack);
+	j = ft_strlen(needle);
+	while (i >= 0)
+	{
+		while (haystack[i] == needle[j])
+		{
+			if (j == 0)
+				return (0);
+			j--;
+			i--;
+		}
+		if (j != (int)ft_strlen(needle))
+			break ;
+		i--;
+	}
 	return (1);
 }

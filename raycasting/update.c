@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   update.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/26 10:39:51 by jteoh             #+#    #+#             */
+/*   Updated: 2024/01/26 10:40:04 by jteoh            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../cub3d.h"
 
 void	update_player_position(t_player *player, char **grid)
@@ -42,7 +54,6 @@ void	raycasting(t_game *game)
 	double	ray_angle;
 	int		i;
 
-	
 	ray_angle = game->player.rotation_angle - game->rays.view_angle / 2;
 	i = 0;
 	while (i < game->display.width)

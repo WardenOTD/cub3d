@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   structs.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jteoh <jteoh@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/26 10:27:45 by jteoh             #+#    #+#             */
+/*   Updated: 2024/01/26 10:29:05 by jteoh            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-typedef struct	s_ray
+typedef struct s_ray
 {
 	double		x;
 	double		y;
@@ -14,14 +26,14 @@ typedef struct	s_ray
 	double		y_step;
 }				t_ray;
 
-typedef struct	s_rays
+typedef struct s_rays
 {
 	t_ray		*arr; //array of single rays
 	double		view_angle; //angle of player's field of vision
 	double		dist_proj_plane;
 }				t_rays;
 
-typedef struct	s_img
+typedef struct s_img
 {
 	void		*img_ptr; //pointer for image
 	int			*data; //address for image given by mlx_get_data_addr
@@ -30,7 +42,7 @@ typedef struct	s_img
 	int			endian; //given by mlx_get_data_addr
 }	t_img;
 
-typedef struct	s_player
+typedef struct s_player
 {
 	double		x; //current x position
 	double		y; //current y position
@@ -41,14 +53,14 @@ typedef struct	s_player
 	double		rotation_speed; //angle moved per frame
 }				t_player;
 
-typedef struct	s_map
+typedef struct s_map
 {
 	char		**map; //square map represented by a char *
 	int			width; //x magnitude of map
 	int			height; // y magnitude of map
 }				t_map;
 
-typedef struct	s_texture
+typedef struct s_texture
 {
 	char		*path; //path to image
 	void		*img_ptr; //void * for mlx
@@ -60,7 +72,7 @@ typedef struct	s_texture
 	int			height; //image height
 }				t_texture;
 
-typedef struct	s_display
+typedef struct s_display
 {
 	long long	width; //screen width
 	long long	height; //screen height
@@ -75,15 +87,15 @@ typedef struct	s_display
 
 typedef struct s_game
 {
-	void *mlx; //pointer for mlx
-	void *win; //pointer for win
-
+	void		*mlx; //pointer for mlx
+	void		*win; //pointer for win
+	//---
 	int			activate_mouse;
 	t_player	player; //data structure for player info
 	t_rays		rays; //data structure for rays used for raycasting
 	t_display	display; //data structure for items involved in the ui
 	t_img		frame; //data structure for the frame printed on screen
-}	t_game;
+}				t_game;
 
 typedef struct s_data
 {
@@ -109,7 +121,7 @@ typedef struct s_data
 	t_game	game; //game data
 }				t_data;
 
-typedef struct	s_rect
+typedef struct s_rect
 {
 	int			x;
 	int			y;
