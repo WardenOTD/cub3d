@@ -1,8 +1,8 @@
 /* XPM */
 static char *_0b0712d971f4963c627840de6392f27V8D7DFUg1o7NxBrj[] = {
 /* columns rows colors chars-per-pixel */
-"360 856 19 1 ",
-"  c #EEEEEE",
+"256 256 19 1 ",
+"  c black",
 ". c #999B9B",
 "X c #EE9783",
 "o c #E3E0DF",
@@ -10,7 +10,7 @@ static char *_0b0712d971f4963c627840de6392f27V8D7DFUg1o7NxBrj[] = {
 "+ c #F1FEFE",
 "@ c #E50400",
 "# c #E92A00",
-"$ c white",
+"$ c black",
 "% c #A7220A",
 "& c #B8B9B9",
 "* c #981004",
